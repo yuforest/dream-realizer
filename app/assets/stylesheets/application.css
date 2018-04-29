@@ -117,3 +117,11 @@ color: #ffffff;
 .features {
     margin-bottom: 200px;
 }
+
+.icon::before {
+  display: inline-block;
+  margin-right: .5em;
+   font-family: FontAwesome;content: "\f2cd";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
