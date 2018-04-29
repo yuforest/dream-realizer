@@ -26,7 +26,7 @@ class LongTargetsController < ApplicationController
   
   def create
     @long_target = LongTarget.create(target_params)
-    @long_target.dream_id = Dream.first.id
+    @long_target.dream_id = current_user.dream.id
     
     if @long_target.save
       redirect_to long_targets_path

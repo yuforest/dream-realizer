@@ -13,20 +13,24 @@
    <% if current_user.dream.long_targets != nil %>
 <h2>長期目標一覧</h2>
       <% @long_targets.each do |long_target| %>
-        <% @medium_targets = long_target.medium_targets
+        <% 
+           @medium_targets = long_target.medium_targets
            @complete_percentage = (@medium_targets.where(status: true).count.to_f / @medium_targets.count.to_f)*100
            @round_percentage = @complete_percentage.round(1)
         %>
         <h3><%= long_target.target %></h3>
-        <% if long_target.medium_targets.count!= 0 %> 
-         <p>達成度</p>
-          <div class="progress">
-           
-            <div class="progress-bar" role="progressbar" aria-valuenow="<%= @round_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @round_percentage %>%;">
-              <%= @round_percentage %>%
+        
+        <% if long_target.medium_targets.count != 0 %> 
+          <% if long_target.medium_targets.where(status: true).count != 0 %>
+            <p>達成度</p>
+            <div class="progress">
+             
+              <div class="progress-bar" role="progressbar" aria-valuenow="<%= @round_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @round_percentage %>%;">
+                <%= @round_percentage %>%
+              </div>
             </div>
-          </div>
-        <% end %></h4>
+          <% end %>
+        <% end %>
         <div class="long_target_buttons cleatfix">
           <span><%= link_to '詳細', long_target_path(long_target.id), class: 'btn btn-default' %></span>
           <span><%= link_to '編集', edit_long_target_path(long_target.id) ,class: 'btn btn-info'%></span>
