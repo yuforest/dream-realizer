@@ -1,0 +1,14 @@
+<h1>中期目標の編集</h1>
+
+<%= form_with(model: @medium_target, local:true) do |form| %>
+  <%= form.label :target, '内容' %>
+  <%= form.text_field :target %>
+  
+  <%= form.label :start, '開始' %>
+  <%= form.date_field :start %>  
+  
+  <%= form.label :end, '期限' %>
+  <%= form.date_field :end %>
+    
+    <%= form.submit '作成' %>
+<% end %>

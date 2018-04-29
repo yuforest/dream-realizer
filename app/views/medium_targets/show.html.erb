@@ -1,0 +1,28 @@
+<h1>中期目標</h1>
+
+
+<h2><%= @medium_target.target %></h2>
+    <p><%= link_to '中期目標の編集', edit_medium_target_path(@medium_target.id),class: 'btn btn-info' %></p>
+    <p><%= link_to '中期目標の削除', medium_target_path(@medium_target.id), method: :delete,
+        data: { confirm: '中期目標を削除します。本当によろしいですか？' } , class: 'btn btn-danger'%>
+    </p>
+<h3>Step</h3>
+<ul>
+    <% @medium_target.steps.each do |step| %>
+  <li class="step_list">
+      <%# link_to step.target, step_path(step.id) %>
+      <span class="step-span" ><%= step.target %></span> <%=link_to '編集',edit_step_path(step.id), class: 'btn btn-info' %> <%= link_to '削除', step_path(step.id), method: :delete,
+     data:{ confirm: 'ステップを削除します。本当によろしいですか？' }, class: 'btn btn-danger' %>
+  </li>
+ <% end %>
+</ul>
+
+<%= link_to "Stepを作成する", new_step_path(medium_target_id: @medium_target.id),class: 'btn btn-success' %> 
+<div>
+  <%= link_to "長期目標のページに戻る", long_target_path(@medium_target.long_target_id) %>
+</div>
+<script>
+// $('.step-list').on('click', function(){
+//   $(this).css('text-decoration', 'line-through');
+// });
+</script>

@@ -1,0 +1,59 @@
+<div class="topheader">
+  
+</div>
+<div class="topmessage">
+    <h3>夢を実現させるためのツール</h3>
+    <p>
+      目標はあるのに、日々の雑事や仕事に追われ、
+      1年たっても全く進んでいないということはありませんか？<br>
+      Dream Realizerはそんな人のためのソリューションです。<br>
+      夢の実現を簡単かつ詳細にサポートします。
+    </p>
+    <p><a href="
+    <% if logged_in? %>
+    <%= long_targets_path %>
+    <% else %>
+    <%= new_session_path %>
+  <% end %>
+    " class="btn btn-default">今すぐに始める</a></p>
+</div>
+
+<div class="features">
+  <h3>FEATURES</h3>
+  <div class="container-fluid">
+  	<div class="row">
+  		<div class="col-md-4">
+  		  <i class="glyphicon glyphicon-signal"></i>
+  		  <h4>段階的な目標</h4>
+  		  <p>小さな目標を達成していけば大きな目標が達成できるようになっています。</p>
+  		</div>
+  		<div class="col-md-4">
+  		   <i class="glyphicon glyphicon-lock"></i>
+  		  <h4>プライバシー</h4>
+  		  <p>あなたの目標は他人に見られることはありません。</p>
+  		</div>
+  		<div class="col-md-4">
+  		  <i class="glyphicon glyphicon-ok"></i>
+  		  <h4>達成度の表示</h4>
+  		  <p>長期目標の達成度は中期目標の達成度によってわかります。</p>
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div class="col-md-4">
+  		   <i class="glyphicon glyphicon-th-list"></i>
+  		  <h4>簡単な一括管理</h4>
+  	    <p>長期目標を消した時にはその下の中期目標も自動的に削除されます。</p>
+  		</div>
+  		<div class="col-md-4">
+  		   <i class="glyphicon glyphicon-road"></i>
+  		  <h4>まずは小さな1歩から</h4>
+  		  <p>中期目標を達成するためのステップも登録できるようになっています。</p>
+  		</div>
+  		<div class="col-md-4">
+  		   <i class="glyphicon glyphicon-calendar"></i>
+  		  <h4>カレンダー(Coming Soon)</h4>
+  		  <p>カレンダーによって長期目標や中期目標をいつまでに達成するのかを視覚的に確認できます。</p>
+  		</div>
+  	</div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<h1>Dreams</h1>
+
+
+<% @dreams.each do |dream| %>
+  <p><%= dream.target %></p>
+  <p><%= link_to '詳細を確認', dream_path(dream.id) %></p>
+<% end %>
+<% if Dream.count == 0 %>
+  <%= link_to '夢を作成する', new_dream_path %>
+<% end %>

@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+
+development:
+  <<: *default
+  database: dream_realizer_development
+
+test:
+  <<: *default
+  database: dream_realizer_test
+
+
+production:
+  <<: *default
+  database: dream_realizer_production
+  username: dream_realizer
+  password: <%= ENV['DREAM_REALIZER_DATABASE_PASSWORD'] %>

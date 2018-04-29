@@ -1,0 +1,8 @@
+<h1>夢の編集</h1>
+
+<%= form_with(model: @dream, local:true) do |form| %>
+    <%= form.label :target, '内容' %>
+    <%= form.text_field :target %>
+    
+    <%= form.submit '作成' %>
+<% end %>

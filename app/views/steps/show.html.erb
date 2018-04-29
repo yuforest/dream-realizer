@@ -1,0 +1,6 @@
+<h1>Step</h1>
+
+<p><%= @step.target %></p>
+
+<p>期限: <%= @step.start %>~<%= @step.end %></p>
+<%= link_to "中期目標のページへ",  medium_target_path(@step.medium_target_id)%>

@@ -1,0 +1,35 @@
+
+<h1>長期目標: <%= @long_target.target %>について</h1>
+
+<% if @long_target.medium_targets.count != 0 %>
+  <h2>達成度</h2>
+  
+  <div class="progress">
+           
+    <div class="progress-bar" role="progressbar" aria-valuenow="<%= @round_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @round_percentage %>%;">
+      <%= @round_percentage %>%
+    </div>
+  </div>
+<% end %>
+
+
+<div class="medium_target_lists">
+  <% @long_target.medium_targets.each do |medium_target| %>
+    <h3 class="medium_target_list">
+        <%= link_to medium_target.target, medium_target_path(medium_target.id, medium_target_id: medium_target.id) %>
+    </h3>
+    <% if medium_target.status == false %>
+      <%= button_to '完了', medium_target_path(medium_target.id), method: :put, params: {status: true, id: medium_target.id} %>
+    <% else %>
+      <p>このタスクは完了しました</p>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+    <%= link_to '中期目標の作成', new_medium_target_path(long_target_id: @long_target.id), class: 'btn btn-success' %>
+</div>
+<%= link_to "長期目標一覧に戻る", long_targets_path %>
+
+
+

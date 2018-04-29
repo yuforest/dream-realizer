@@ -1,0 +1,46 @@
+<h1>私の夢</h1>
+<div class="dream_field">
+    
+    <% if current_user.dream != nil %>
+      <h3><%= @dream.target %></h3>
+   
+    <p><%= link_to '夢を編集する', edit_dream_path(@dream.id), class: 'btn btn-info'%></p>
+    <p><%= link_to '夢をリセットする', dream_path(current_user.dream.id), method: :delete,
+    data: { confirm: '夢をリセットすると長期目標、中期目標、ステップもリセットされます。本当によろしいですか？' }, class: 'btn btn-danger' %></p>
+     <% end %>
+</div>
+ <% if current_user.dream != nil  %>
+   <% if current_user.dream.long_targets != nil %>
+<h2>長期目標一覧</h2>
+      <% @long_targets.each do |long_target| %>
+        <% @medium_targets = long_target.medium_targets
+           @complete_percentage = (@medium_targets.where(status: true).count.to_f / @medium_targets.count.to_f)*100
+           @round_percentage = @complete_percentage.round(1)
+        %>
+        <h3><%= long_target.target %></h3>
+        <% if long_target.medium_targets.count!= 0 %> 
+         <p>達成度</p>
+          <div class="progress">
+           
+            <div class="progress-bar" role="progressbar" aria-valuenow="<%= @round_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @round_percentage %>%;">
+              <%= @round_percentage %>%
+            </div>
+          </div>
+        <% end %></h4>
+        <div class="long_target_buttons cleatfix">
+          <span><%= link_to '詳細', long_target_path(long_target.id), class: 'btn btn-default' %></span>
+          <span><%= link_to '編集', edit_long_target_path(long_target.id) ,class: 'btn btn-info'%></span>
+          <span><%= link_to '削除', long_target_path(long_target.id), method: :delete,
+              data: { confirm: '長期目標を削除します。本当によろしいですか？' },class: 'btn btn-danger' %></span>
+        </div>
+      <% end %>
+    <% end %>
+<% end %>
+
+
+<% if current_user.dream == nil%>
+  <%= link_to '夢を作成する', new_dream_path,class: 'btn btn-success'%>
+<% end %>
+<% if current_user.dream != nil %>
+  <%= link_to '長期目標の作成', new_long_target_path, class: 'btn btn-success' %>
+<% end %>
