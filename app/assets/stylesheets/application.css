@@ -93,7 +93,7 @@ color: #ffffff;
     margin-top: 0;
     top: -20px;
     background-size:auto 720px;
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     
 }
 .topmessage{
