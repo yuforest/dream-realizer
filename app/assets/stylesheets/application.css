@@ -114,3 +114,6 @@ color: #ffffff;
 .features i{
     font-size:4rem;
 }
+.features {
+    margin-bottom: 200px;
+}
