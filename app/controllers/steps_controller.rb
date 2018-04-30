@@ -1,5 +1,6 @@
 class StepsController < ApplicationController
   before_action :set_step, only: [:show, :edit, :update, :destroy]
+  before_action :non_user_redirect_to_login
   def index
     @long_targets = LongTarget.all
   

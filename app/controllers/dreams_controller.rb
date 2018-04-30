@@ -1,5 +1,6 @@
 class DreamsController < ApplicationController
   before_action :set_dream, only: [:show, :edit, :update, :destroy]
+  before_action :non_user_redirect_to_login
   def index
     @dreams = Dream.all
     

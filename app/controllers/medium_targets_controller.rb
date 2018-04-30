@@ -1,6 +1,6 @@
 class MediumTargetsController < ApplicationController
   before_action :set_medium_target, only: [:show, :edit, :update, :destroy]
-
+  before_action :non_user_redirect_to_login
   def index
     @medium_targets = MediumTarget.all
   
