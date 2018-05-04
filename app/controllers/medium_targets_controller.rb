@@ -32,9 +32,18 @@ class MediumTargetsController < ApplicationController
     
   def update
     if params[:status] != nil
-      @medium_target.update(:status => true)
-      flash[:notice] = "完了しました！"
-      redirect_to long_target_path(@medium_target.long_target_id)
+      if params[:status] == "true"
+        @medium_target.update(:status => true)
+        flash[:notice] = "完了しました！"
+        # MediumTarget.where(long_target_id: @medium_target.long_target_id).order(:target)
+
+        redirect_to long_target_path(@medium_target.long_target_id)
+      elsif params[:status] == "false"
+        @medium_target.update(:status => false)
+        flash[:notice] = "完了を取り消しました！"
+        # MediumTarget.where(long_target_id: @medium_target.long_target_id).order(:target)
+        redirect_to long_target_path(@medium_target.long_target_id)
+      end
     end
     
     if params[:status] == nil
