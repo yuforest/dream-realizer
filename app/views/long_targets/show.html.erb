@@ -21,7 +21,7 @@
         <%= link_to medium_target.target, medium_target_path(medium_target.id, medium_target_id: medium_target.id) %>
     </h3>
     <% if medium_target.status == false %>
-      <%= button_to '完了', medium_target_path(medium_target.id), method: :put, params: {status: true, id: medium_target.id} %>
+      <%= button_to '完了', medium_target_path(medium_target.id), method: :put, params: {status: true, id: medium_target.id}, class: 'btn btn-info' %>
     <% else %>
       <p>このタスクは完了しました</p>
     <% end %>

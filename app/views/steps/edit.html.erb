@@ -1,9 +1,10 @@
 <h1>Stepの編集</h1>
 
 <%= form_with(model: @step, local:true) do |form| %>
-  <%= form.label :target, '内容' %>
+  <%= form.label :target, '内容' , class: 'next-row'%>
   <%= form.text_field :target %>
   
 
-    <%= form.submit '作成' %>
+    <%= form.submit '作成' , class: 'next-row btn btn-success'%>
+    <%= link_to "中期目標に戻る", medium_target_path(@step.medium_target_id) %>
 <% end %>

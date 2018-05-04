@@ -14,12 +14,12 @@
 <%= form_with(model: form_model, url: url_selecter, local: true) do |form| %>
 
   <div class="target_name">
-    <%= form.label :target, '内容' %>
+    <%= form.label :target, '内容', class: 'next-row' %>
     <%= form.text_field :target %>
     <% if params[:type] != 'Dream' &&  params[:type] != 'Step' %>
-      <%= form.label :start, '開始' %>
+      <%= form.label :start, '開始' , class: 'next-row' %>
       <%= form.date_field :start %>
-      <%= form.label :end, '終了' %>
+      <%= form.label :end, '終了', class: 'next-row' %>
       <%= form.date_field :end %>
     <% end %>
     
@@ -30,7 +30,7 @@
     <%= form.hidden_field :medium_target_id, :value => params[:medium_target_id].to_i %>
     <% end %>
    </div>
-  <%= form.submit '作成' %>
+  <%= form.submit '作成', class: 'btn btn-success' %>
   
 <% end %>
 

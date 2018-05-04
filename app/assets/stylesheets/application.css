@@ -131,3 +131,16 @@ color: #ffffff;
 .content-container{
     margin-bottom: 200px;
 }
+
+.medium_target_list a{
+    text-decoration: none;
+}
+.next-row{
+    display:block;
+}
+
+.btn{
+    
+    
+    margin: 5px auto;
+}
