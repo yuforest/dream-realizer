@@ -12,19 +12,19 @@
 <% end %>
 
 <%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
+  <%= f.label :name , class: 'next-row'%>
   <%= f.text_field :name %>
   
-  <%= f.label :email %>
+  <%= f.label :email, class: 'next-row' %>
   <%= f.email_field :email %>
   
   
-  <%= f.label :password %>
+  <%= f.label :password , class: 'next-row'%>
   <%= f.password_field :password %>
   
-  <%= f.label :password_confirmation %>
+  <%= f.label :password_confirmation , class: 'next-row'%>
   <%= f.password_field :password_confirmation %>
   
-  <%= f.submit "Create my account" %>
+  <%= f.submit "Create my account", class: 'next-row btn btn-success' %>
   
 <% end %>
