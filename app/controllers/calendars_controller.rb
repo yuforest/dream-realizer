@@ -1,4 +1,5 @@
 class CalendarsController < ApplicationController
+  before_action :non_user_redirect_to_login
   def index
   
     if logged_in?
