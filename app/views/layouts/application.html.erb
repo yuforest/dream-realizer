@@ -29,9 +29,10 @@
         <div class="collapse navbar-collapse" id="navbar-collapse1">
           <ul class="nav navbar-nav">
             <li><a href="/">HOME</span></a></li>
-            <li><a href="/long_targets">長期計画</a></li>
-            <li><%= link_to "カレンダー", calendars_path %></li>
-<!--<a href="/calendars">カレンダー</a>-->
+            <% if logged_in? %>
+              <li><a href="/long_targets">長期計画</a></li>
+              <li><%= link_to "カレンダー", calendars_path %></li>
+             <% end %>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
