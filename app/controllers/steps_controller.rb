@@ -36,7 +36,7 @@ class StepsController < ApplicationController
     end
   end
     
-  def delete
+  def destroy
     @step.destroy
     redirect_to medium_target_path(@step.medium_target.id)
   end

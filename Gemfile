@@ -39,6 +39,10 @@ gem 'jquery-ui-rails', '4.1.0'
 
 # gem 'font-awesome-rails', '4.0.3.0'
 gem 'bootstrap-sass', '2.1'
+gem 'therubyracer'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

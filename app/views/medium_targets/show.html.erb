@@ -2,6 +2,7 @@
 
 
 <h2><%= @medium_target.target %></h2>
+<h3>期間: <%= @medium_target.start.to_date %>～<%= @medium_target.end.to_date %></h3>
     <p><%= link_to '中期目標の編集', edit_medium_target_path(@medium_target.id),class: 'btn btn-info' %></p>
     <p><%= link_to '中期目標の削除', medium_target_path(@medium_target.id), method: :delete,
         data: { confirm: '中期目標を削除します。本当によろしいですか？' } , class: 'btn btn-danger'%>

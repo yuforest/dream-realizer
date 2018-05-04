@@ -1,6 +1,6 @@
 
 <h1>長期目標: <%= @long_target.target %>について</h1>
-
+<h2>期間: <%= @long_target.start.to_date %>～<%= @long_target.end.to_date %></h2>
 <% if @long_target.medium_targets.count != 0 %>
   <% if @long_target.medium_targets.where(status: true).count != 0 %>
   <h2>達成度</h2>

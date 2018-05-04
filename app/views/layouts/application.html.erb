@@ -3,7 +3,6 @@
   <head>
     <title>DreamRealizer</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -31,7 +30,8 @@
           <ul class="nav navbar-nav">
             <li><a href="/">HOME</span></a></li>
             <li><a href="/long_targets">長期計画</a></li>
-
+            <li><%= link_to "カレンダー", calendars_path %></li>
+<!--<a href="/calendars">カレンダー</a>-->
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
