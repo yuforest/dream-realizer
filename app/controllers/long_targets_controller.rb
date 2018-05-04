@@ -37,7 +37,7 @@ class LongTargetsController < ApplicationController
   
   def show
      @long_target = current_user.dream.long_targets.find(params[:id])
-     @medium_targets = @long_target.medium_targets.order(:id)
+     @medium_targets = @long_target.medium_targets
      @complete_percentage = (@medium_targets.where(status: true).count.to_f / @medium_targets.count.to_f)*100
      @round_percentage = @complete_percentage.round(1)
   end
