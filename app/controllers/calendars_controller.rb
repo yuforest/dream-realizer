@@ -3,20 +3,22 @@ class CalendarsController < ApplicationController
   def index
   
     if logged_in?
-      @long_targets = current_user.dream.long_targets
-      for i in @long_targets
-         i.end = i.end.to_date + 1
-      end
-      @medium_targets = []
-      for long_target in @long_targets
-        @medium_target = long_target.medium_targets
-        for i in @medium_target
-          @medium_targets << i
+      if current_user.dream != nil
+        @long_targets = current_user.dream.long_targets
+        for i in @long_targets
+           i.end = i.end.to_date + 1
+        end
+        @medium_targets = []
+        for long_target in @long_targets
+          @medium_target = long_target.medium_targets
+          for i in @medium_target
+            @medium_targets << i
+          end
+        end
+        for i in @medium_targets
+            i.end = i.end.to_date + 1
         end
       end
-      for i in @medium_targets
-          i.end = i.end.to_date + 1
-        end
     end
   end
 end
