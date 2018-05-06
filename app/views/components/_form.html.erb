@@ -46,5 +46,9 @@
    <%= link_to '中期目標に戻る', medium_target_path(@medium_target.id) %>
   <% end %>
 <% else %>
-  <%= link_to '中期目標に戻る', medium_target_path(params[:medium_target_id]) %>
+  <% if action_name == 'new' %>
+    <%= link_to '中期目標に戻る', medium_target_path(params[:medium_target_id]) %>
+  <% elsif action_name == 'edit' %>
+   <%= link_to '中期目標に戻る', medium_target_path(@step.medium_target.id) %>
+  <% end %>
 <% end %>
