@@ -1,17 +1,17 @@
-<h1><%= params[:type] %>の作成</h1>
+<h1><%= choose_model_type %>の<%= devide_new_or_edit %></h1>
 <% form_model = model_selecter %>
 <% if form_model.errors.any? %>
   <div id="error_explanation">
     <h2><%= form_model.errors.count %>件のエラーがあります。</h2>
  
-    <ul>
+    <ul class="error_messages">
     <% form_model.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li class="error_message"><%= msg %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
-<%= form_with(model: form_model, url: url_selecter, local: true) do |form| %>
+<%= form_with(model: form_model, local: true) do |form| %>
 
   <div class="target_name">
     <%= form.label :target, '内容', class: 'next-row' %>
@@ -23,16 +23,28 @@
       <%= form.date_field :end %>
     <% end %>
     
-    <% if params[:type] == 'MediumTarget' %>
+    <% if params[:type] == 'MediumTarget' && action_name == 'new' %>
     <%= form.hidden_field :long_target_id, :value => params[:long_target_id].to_i %>
     <% end %>
     <% if params[:type] == 'Step' %>
     <%= form.hidden_field :medium_target_id, :value => params[:medium_target_id].to_i %>
     <% end %>
    </div>
-  <%= form.submit '作成', class: 'btn btn-success' %>
+  <%= form.submit devide_new_or_edit , class: 'btn btn-success' %>
   
 <% end %>
 
-<%= link_to "長期目標一覧を見る", long_targets_path %>
 
+<% if params[:type] == 'Dream' %>
+  <%= link_to '長期目標一覧に戻る', long_targets_path %>
+<% elsif params[:type] == 'LongTarget' %>
+  <%= link_to '長期目標一覧に戻る', long_targets_path %>
+<% elsif params[:type] == 'MediumTarget' %>
+  <% if action_name == 'new' %>
+    <%= link_to '長期目標に戻る', long_target_path(params[:long_target_id]) %>
+  <% elsif action_name == 'edit' %>
+   <%= link_to '中期目標に戻る', medium_target_path(@medium_target.id) %>
+  <% end %>
+<% else %>
+  <%= link_to '中期目標に戻る', medium_target_path(params[:medium_target_id]) %>
+<% end %>

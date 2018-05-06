@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+      dream: "夢"
+      long_target: "長期目標"
+      medium_target: "中期目標"
+      step: "ステップ"
+    attributes:
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワードの確認"
+        remember_me: "ログインを記憶"
+      dream:
+        target: "夢"
+      long_target:
+        target: "長期目標"
+        start: "始まり"
+        end: "期限"
+      medium_target:
+        target: "中期目標"
+        start: "始まり"
+        end: "期限"
+      step:
+        target: "ステップ"

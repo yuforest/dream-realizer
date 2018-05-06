@@ -1,15 +1,3 @@
-<h1>長期目標の編集</h1>
 
-<%= form_with(model: @long_target, local:true) do |form| %>
-  <%= form.label :target, '内容' , class: 'next-row'%>
-  <%= form.text_field :target %>
-  
-  <%= form.label :start, '開始' , class: 'next-row'%>
-  <%= form.date_field :start %>  
-  
-  <%= form.label :end, '期限' , class: 'next-row'%>
-  <%= form.date_field :end %>
-    
-    <%= form.submit '作成' , class: 'next-row btn btn-success'%>
-<% end %>
-<%= link_to "長期計画に戻る", long_targets_path %>
+
+<%= render 'components/form' %>

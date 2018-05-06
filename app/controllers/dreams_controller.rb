@@ -17,7 +17,7 @@ class DreamsController < ApplicationController
     if @dream.save
       redirect_to long_targets_path
     else
-      render 'dreams/new'
+      render 'new'
     end
   end
   

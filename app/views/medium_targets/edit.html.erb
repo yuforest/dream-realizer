@@ -1,17 +1,19 @@
-<h1>中期目標の編集</h1>
+<!--<h1>中期目標の編集</h1>-->
 
-<%= form_with(model: @medium_target, local:true) do |form| %>
-  <%= form.label :target, '内容' , class: 'next-row'%>
-  <%= form.text_field :target %>
+ <!--#form_with(model: @medium_target, local:true) do |form| %>-->
+   <!--#form.label :target, '内容' , class: 'next-row'%>-->
+   <!--#form.text_field :target %>-->
   
-  <%= form.label :start, '開始', class: 'next-row' %>
-  <%= form.date_field :start %>  
+   <!--#form.label :start, '開始', class: 'next-row' %>-->
+   <!--#form.date_field :start %>  -->
   
-  <%= form.label :end, '期限', class: 'next-row' %>
-  <%= form.date_field :end %>
-    <div>
-    <%= form.submit '作成', class: 'btn btn-success next-row' %>
-    </div>
-<% end %>
+   <!--#form.label :end, '期限', class: 'next-row' %>-->
+   <!--#form.date_field :end %>-->
+    <!--<div>-->
+     <!--#form.submit '作成', class: 'btn btn-success next-row' %>-->
+    <!--</div>-->
+ <!--#end %>-->
 
-<%= link_to "中期目標に戻る", medium_target_path(@medium_target.id) %>
+ <!--#link_to "中期目標に戻る", medium_target_path(@medium_target.id) %>-->
+ 
+ <%= render 'components/form' %>

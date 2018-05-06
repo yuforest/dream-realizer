@@ -144,3 +144,12 @@ color: #ffffff;
     
     margin: 5px auto;
 }
+
+.error_message{
+    list-style-type:  none;
+    margin: 0!important;
+    
+}
+.error_messages{
+    padding: 0;
+}

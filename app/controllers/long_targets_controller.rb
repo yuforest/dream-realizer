@@ -29,7 +29,7 @@ class LongTargetsController < ApplicationController
     @long_target.dream_id = current_user.dream.id
     
     if @long_target.save
-      redirect_to long_targets_path
+      redirect_to long_targets_path, notice: "長期目標を作成しました"
     else
       render 'long_targets/new'
     end
