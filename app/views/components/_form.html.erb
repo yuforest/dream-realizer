@@ -23,11 +23,16 @@
       <%= form.date_field :end %>
     <% end %>
     
-    <% if params[:type] == 'MediumTarget' && action_name == 'new' %>
+    <% if params[:type] == 'MediumTarget' && action_name == 'new'  %>
     <%= form.hidden_field :long_target_id, :value => params[:long_target_id].to_i %>
+    <% elsif params[:type] == 'MediumTarget' &&  action_name =='create' %>
+    <%= form.hidden_field :long_target_id, :value => params[:medium_target][:long_target_id].to_i %>
     <% end %>
-    <% if params[:type] == 'Step' %>
+    
+    <% if params[:type] == 'Step'&& action_name == 'new'  %>
     <%= form.hidden_field :medium_target_id, :value => params[:medium_target_id].to_i %>
+    <% elsif params[:type] == 'Step' &&  action_name =='create' %>
+    <%= form.hidden_field :medium_target_id, :value => params[:step][:medium_target_id].to_i %>
     <% end %>
    </div>
   <%= form.submit devide_new_or_edit , class: 'btn btn-success' %>
@@ -40,15 +45,19 @@
 <% elsif params[:type] == 'LongTarget' %>
   <%= link_to '長期目標一覧に戻る', long_targets_path %>
 <% elsif params[:type] == 'MediumTarget' %>
-  <% if action_name == 'new'|| action_name == "create" %>
+  <% if action_name == 'new'  %>
     <%= link_to '長期目標に戻る', long_target_path(params[:long_target_id]) %>
+  <% elsif action_name == "create" %>
+   <%= link_to '長期目標に戻る', long_target_path(params[:medium_target][:long_target_id]) %>
   <% elsif action_name == 'edit'|| action_name == 'update' %>
    <%= link_to '中期目標に戻る', medium_target_path(@medium_target.id) %>
   <% end %>
 <% else %>
   <% if action_name == 'new' %>
     <%= link_to '中期目標に戻る', medium_target_path(params[:medium_target_id]) %>
-  <% elsif action_name == 'edit' %>
+  <% elsif action_name == "create" %>
+   <%= link_to '中期目標に戻る', medium_target_path(params[:step][:medium_target_id]) %>
+  <% elsif action_name == 'edit' || action_name == 'update'  %>
    <%= link_to '中期目標に戻る', medium_target_path(@step.medium_target.id) %>
   <% end %>
 <% end %>

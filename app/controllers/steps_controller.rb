@@ -14,7 +14,7 @@ class StepsController < ApplicationController
     @step = Step.create(target_params)
 
     if @step.save
-      redirect_to medium_target_path(@step.medium_target_id)
+      redirect_to medium_target_path(@step.medium_target_id), notice: "ステップを作成しました"
     else
       render 'steps/new'
     end
@@ -30,7 +30,7 @@ class StepsController < ApplicationController
     
   def update
     if @step.update(target_params) 
-        redirect_to medium_target_path(@step.medium_target.id)
+        redirect_to medium_target_path(@step.medium_target.id), notice: "ステップを編集しました"
       else
         render 'edit'
     end

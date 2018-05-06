@@ -16,9 +16,10 @@ class MediumTargetsController < ApplicationController
     @medium_target.status = false
     
     if @medium_target.save
-      redirect_to long_target_path(@medium_target.long_target_id)
+      redirect_to long_target_path(@medium_target.long_target_id), notice: "中期目標を作成しました"
     else
-      render 'long_targets/new'
+      
+      render 'medium_targets/new'
     end
   end
   
@@ -48,7 +49,7 @@ class MediumTargetsController < ApplicationController
     
     if params[:status] == nil
       if @medium_target.update(target_params) 
-        redirect_to medium_target_path(@medium_target.id)
+        redirect_to medium_target_path(@medium_target.id), notice: "中期目標を編集しました"
       else
         render 'edit'
       end
