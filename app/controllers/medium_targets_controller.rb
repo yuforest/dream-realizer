@@ -3,7 +3,6 @@ class MediumTargetsController < ApplicationController
   before_action :non_user_redirect_to_login
   def index
     @medium_targets = MediumTarget.all
-  
   end
   
   def new
@@ -18,7 +17,6 @@ class MediumTargetsController < ApplicationController
     if @medium_target.save
       redirect_to long_target_path(@medium_target.long_target_id), notice: "中期目標を作成しました"
     else
-      
       render 'medium_targets/new'
     end
   end
@@ -36,13 +34,10 @@ class MediumTargetsController < ApplicationController
       if params[:status] == "true"
         @medium_target.update(:status => true)
         flash[:notice] = "完了しました！"
-        # MediumTarget.where(long_target_id: @medium_target.long_target_id).order(:target)
-
         redirect_to long_target_path(@medium_target.long_target_id)
       elsif params[:status] == "false"
         @medium_target.update(:status => false)
         flash[:notice] = "完了を取り消しました！"
-        # MediumTarget.where(long_target_id: @medium_target.long_target_id).order(:target)
         redirect_to long_target_path(@medium_target.long_target_id)
       end
     end

@@ -3,7 +3,7 @@ class LongTargetsController < ApplicationController
   before_action :non_user_redirect_to_login
   def index
     if logged_in?
-      if not current_user.dream.nil?
+      unless current_user.dream.nil?
         @dream = current_user.dream
         @long_targets = current_user.dream.long_targets.all
       end
@@ -11,7 +11,6 @@ class LongTargetsController < ApplicationController
       flash[:notice] = 'ログインしてください'
       render 'sessions/new'
     end
-    
   end
   
   def new
@@ -21,7 +20,6 @@ class LongTargetsController < ApplicationController
       flash[:danger] = '先に夢を設定してください'
       render 'long_targets/index'
     end
-      
   end
   
   def create

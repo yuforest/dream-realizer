@@ -3,7 +3,6 @@ class DreamsController < ApplicationController
   before_action :non_user_redirect_to_login
   def index
     @dreams = Dream.all
-    
   end
   
   def new
@@ -23,7 +22,6 @@ class DreamsController < ApplicationController
   
   def show
     
-     
   end
   
   def edit
@@ -31,7 +29,6 @@ class DreamsController < ApplicationController
   end
     
   def update
-    
     if @dream.update(target_params)
       redirect_to long_targets_path, notice: "夢を編集しました"
     else
@@ -43,7 +40,6 @@ class DreamsController < ApplicationController
     @dream.destroy
     redirect_to long_targets_path, notice: "夢をリセットしました"
   end
-  
   
   private 
     def target_params

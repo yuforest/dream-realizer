@@ -3,7 +3,6 @@ class StepsController < ApplicationController
   before_action :non_user_redirect_to_login
   def index
     @long_targets = LongTarget.all
-  
   end
   
   def new
@@ -12,7 +11,6 @@ class StepsController < ApplicationController
   
   def create
     @step = Step.create(target_params)
-
     if @step.save
       redirect_to medium_target_path(@step.medium_target_id), notice: "ステップを作成しました"
     else
@@ -22,10 +20,10 @@ class StepsController < ApplicationController
   
   def show
     
-
   end
   
   def edit
+    
   end
     
   def update
@@ -40,7 +38,6 @@ class StepsController < ApplicationController
     @step.destroy
     redirect_to medium_target_path(@step.medium_target.id)
   end
-  
   
   private 
     def target_params

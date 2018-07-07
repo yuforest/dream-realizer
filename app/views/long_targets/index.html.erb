@@ -24,7 +24,6 @@
           <% if long_target.medium_targets.where(status: true).count != 0 %>
             <p>達成度</p>
             <div class="progress">
-             
               <div class="progress-bar" role="progressbar" aria-valuenow="<%= @round_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @round_percentage %>%;">
                 <%= @round_percentage %>%
               </div>
